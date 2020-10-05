@@ -24,6 +24,7 @@ gem 'redis', '~> 4.0'
 gem 'rest-client', '~> 2.1'
 gem 'activerecord-import', '~> 1.0', '>= 1.0.6'
 gem 'whenever', require: false
+gem 'will_paginate-bootstrap4'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
