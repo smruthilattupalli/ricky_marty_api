@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is a ruby on rails project which will work
+with Rick and Morty API
 
-Things you may want to cover:
+https://rickandmortyapi.com/api/character
 
-* Ruby version
+# FEATURES IMPLEMENTED
 
-* System dependencies
+Models ::
+---------
+  1. Character (name, status, image)
+  2. Episode (number, character)
 
-* Configuration
+Rake Task ::
+------------
+  1. import:characters
 
-* Database creation
+Uses RestClient and JSON to fetch data from the External API to
+get all the characters
 
-* Database initialization
+Cron Job ::
+-----------
+Uses the 'whenever' gem to schedule the import rake task to run every 12 hours
 
-* How to run the test suite
+>cronjob -l     --> to list the cron job
 
-* Services (job queues, cache servers, search engines, etc.)
+Rails.cache.fetch ::
+--------------------
+Uses caching of the DB data for quick rendering. Used Redis server for cache memory
 
-* Deployment instructions
+Pagination ::
+-------------
+Uses the 'will-paginate_bootstrap' gem to display the results in the view for
+navigating different pages
 
-* ...
+# STEPS TO RUN
+
+1. Clone the repository
+2. rails db:create
+3. rails db:migrate
+4. bundle install
+5. rake import:characters (for the first time)
+6. rails s
+7. http://localhost:3000
+

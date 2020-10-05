@@ -5,5 +5,4 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
     get characters_index_url
     assert_response :success
   end
-
 end
