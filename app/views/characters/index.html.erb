@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Ricky and Morty</h1>
-  <div align="center" class="my-3 d-flex justify-content-between">
+  <div align="center" class="my-3 d-flex justify-content-between w-100">
     <%= will_paginate @characters, renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
     previous_label: "Prev", next_label: "Next", inner_window: 1, outer_window: 0 %>
   </div>

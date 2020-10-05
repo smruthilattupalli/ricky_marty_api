@@ -14,17 +14,19 @@ namespace :import do
       character_set = result_set['results']
       character_set.each do |character|
         episode_set = character['episode']
-        new_character = Character.new(name: character['name'],
-                                      status: character['status'],
-                                      image: character['image'])
-        episode_set.each do |episode_url|
-          new_character.episodes.build(number: episode_url)
+        if !Character.exists?(name: character['name'])
+          new_character = Character.new(name: character['name'],
+                                        status: character['status'],
+                                        image: character['image'])
+          episode_set.each do |episode_url|
+            new_character.episodes.build(number: episode_url)
+          end
+          characters << new_character
         end
-        characters << new_character
       end
       fetch_url = info['next']
       break if fetch_url.nil?
     end
-    Character.import! characters, recursive: true
+    Character.import! characters, recursive: true, validation: false, on_duplicate_key_update: [:name]
   end
 end
