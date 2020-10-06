@@ -19,6 +19,8 @@ Rake Task ::
 Uses RestClient and JSON to fetch data from the External API to
 get all the characters
 
+Uses ActiveRecord:Import feature for bulk import
+
 Cron Job ::
 -----------
 Uses the 'whenever' gem to schedule the import rake task to run every 12 hours
